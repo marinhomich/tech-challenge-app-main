@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oficina-config
+  namespace: oficina
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-service:5432/oficinadb"
+  SPRING_DATASOURCE_USERNAME: "oficina"
+  MAIL_HOST: "localhost"
+  MAIL_PORT: "25"
+  MAIL_FROM: "noreply@oficina.local"
+  SERVER_PORT: "8080"
