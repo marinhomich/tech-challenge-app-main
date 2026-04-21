@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:15:///testdb
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+jwt:
+  secret: test_jwt_secret_key_with_minimum_256_bits_for_hmac_sha_algorithms_as_required_by_rfc_7518

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: oficina-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  mail:
+    host: ${MAIL_HOST:localhost}
+    port: ${MAIL_PORT:25}
+    username: ${MAIL_USER:}
+    password: ${MAIL_PASS:}
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+jwt:
+  secret: ${JWT_SECRET:minha_chave_super_secreta_padrao_para_desenvolvimento_local_de_mais_de_256_bits_123}
+server:
+  port: 8080
+spring.mail.from: ${MAIL_FROM:noreply@oficina.local}
