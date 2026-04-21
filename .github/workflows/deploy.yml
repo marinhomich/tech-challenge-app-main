@@ -70,5 +70,5 @@ jobs:
         kubectl apply -f k8s/configmap.yaml
         kubectl apply -f k8s/secret.yaml
         kubectl apply -f k8s/app.yaml
+        kubectl rollout status deployment/oficina-api -n oficina --timeout=600s
         kubectl apply -f k8s/hpa.yaml
-        kubectl rollout status deployment/oficina-api -n oficina --timeout=300s
