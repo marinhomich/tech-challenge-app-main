@@ -55,16 +55,19 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
 
-    - name: Set image in k8s manifests
+    - name: Replace Secrets and Env Vars in K8s Manifests
       run: |-
         sed -i "s|ghcr.io/marinhomich/oficina-mecanica-api:latest|$REGISTRY/$IMAGE:${{ github.sha }}|g" k8s/app.yaml
+        sed -i "s|<DB_URL>|${{ secrets.DB_URL }}|g" k8s/configmap.yaml
+        sed -i "s|<DB_USER>|${{ secrets.DB_USER }}|g" k8s/configmap.yaml
+        sed -i "s|<DB_PASS_B64>|${{ secrets.DB_PASS_B64 }}|g" k8s/secret.yaml
+        sed -i "s|<JWT_SECRET_B64>|${{ secrets.JWT_SECRET_B64 }}|g" k8s/secret.yaml
 
     - name: Deploy to GKE
       run: |-
         kubectl apply -f k8s/namespace.yaml
         kubectl apply -f k8s/configmap.yaml
         kubectl apply -f k8s/secret.yaml
-        kubectl apply -f k8s/postgres.yaml
         kubectl apply -f k8s/app.yaml
         kubectl apply -f k8s/hpa.yaml
         kubectl rollout status deployment/oficina-api -n oficina
