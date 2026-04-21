@@ -120,7 +120,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>${spring.boot.version}</version>
         <configuration>
-          <mainClass>com.oficina.TechchallengeApplication</mainClass>
+          <mainClass>com.oficina.TechChallengeApplication</mainClass>
         </configuration>
         <executions>
           <execution>
@@ -161,7 +161,7 @@
         </executions>
         <configuration>
           <excludes>
-            <exclude>com/oficina/TechchallengeApplication.class</exclude>
+            <exclude>com/oficina/TechChallengeApplication.class</exclude>
             <exclude>com/oficina/domain/model/**</exclude>
             <exclude>com/oficina/domain/port/**</exclude>
             <exclude>com/oficina/adapter/**</exclude>
