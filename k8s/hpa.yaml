@@ -1,6 +1,6 @@
 ---
 # Horizontal Pod Autoscaler para o oficina-api
-# Escala automaticamente de 2 a 10 réplicas baseado em CPU e memória
+# Escala automaticamente de 1 a 4 réplicas baseado em CPU e memória
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -11,8 +11,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: oficina-api
-  minReplicas: 2
-  maxReplicas: 10
+  minReplicas: 1
+  maxReplicas: 4
   metrics:
     - type: Resource
       resource:
