@@ -25,3 +25,15 @@ jwt:
 server:
   port: 8080
 spring.mail.from: ${MAIL_FROM:noreply@oficina.local}
+management:
+  health:
+    mail:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
