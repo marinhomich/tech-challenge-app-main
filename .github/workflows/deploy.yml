@@ -7,8 +7,8 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  GKE_CLUSTER: fiap-tech-challenge-cluster    
-  GKE_ZONE: us-central1-c  
+  GKE_CLUSTER: oficina-gke-cluster    
+  GKE_ZONE: us-central1-a  
   IMAGE: oficina-api
   REGISTRY: us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/oficina-repo
 
